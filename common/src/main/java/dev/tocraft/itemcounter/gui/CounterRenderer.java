@@ -6,7 +6,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 import java.awt.*;
@@ -19,11 +18,9 @@ public class CounterRenderer {
             Item searchItem = Items.EMERALD;
 
             int counter = 0;
-            for (ItemStack item : minecraft.player.getInventory().items) {
-                if (item.getItem() == searchItem) {
-                    counter += item.getCount();
-                }
-            }
+
+            // search in player inventory
+            counter += minecraft.player.getInventory().countItem(searchItem);
 
             BakedModel itemRenderer = minecraft.getItemRenderer().getItemModelShaper().getItemModel(Items.EMERALD);
             if (itemRenderer != null) {

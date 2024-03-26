@@ -4,8 +4,3 @@ plugins {
 
 apply from: "https://raw.githubusercontent.com/ToCraft/GradleMaster/main/forge.gradle"
 
-loom {
-    forge {
-        mixinConfigs = ["itemcounter.mixins.json"]
-    }
-}
