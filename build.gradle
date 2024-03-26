@@ -1,0 +1,12 @@
+plugins {
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "1.4-SNAPSHOT" apply false
+}
+
+apply from: "https://raw.githubusercontent.com/ToCraft/GradleMaster/main/main.gradle"
+
+ext {
+    mod_meta = [
+        minecraft_version   : minecraft_version, version: version
+    ]
+}
