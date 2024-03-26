@@ -1,12 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "tocraft.ycdm.mixin",
+  "package": "dev.tocraft.itemcounter.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "accessor.ChestBlockEntityAccessor"
   ],
   "client": [
-    "GuiMixin"
   ],
   "injectors": {
     "defaultRequire": 1

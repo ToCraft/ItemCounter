@@ -14,7 +14,7 @@
   "environment": "client",
   "entrypoints": {
     "main": [
-      "tocraft.itemcounter.fabric.ItemCounterFabric"
+      "dev.tocraft.itemcounter.fabric.ItemCounterFabric"
     ],
     "client": [
     ]
