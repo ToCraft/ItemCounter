@@ -6,6 +6,7 @@ license = "LGPL-3.0"
 modId = "itemcounter"
 version = "${version}"
 displayName = "Item Counter"
+logoFile = "icon.png"
 authors = "To_Craft"
 description = '''
 Adds a custom Item Counter to the game!

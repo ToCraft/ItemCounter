@@ -10,7 +10,7 @@ pluginManagement {
 }
 
 // set to only use one minecraft version
-val minecraft = "1.19.2"
+val minecraft = ""
 
 file("props").listFiles()?.forEach {
     var forcedVersion : String? = startParameter.projectProperties["minecraft"]
@@ -78,5 +78,5 @@ file("props").listFiles()?.forEach {
     }
 }
 
-rootProject.name = "SkinShifter"
+rootProject.name = "ItemCounter"
 rootProject.buildFileName = "root.gradle.kts"

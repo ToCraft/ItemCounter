@@ -3,6 +3,7 @@
   "id": "itemcounter",
   "version": "${version}",
   "name": "Item Counter",
+  "icon": "icon.png",
   "description": "Adds a custom Item Counter to the game!\n",
   "authors": [
     "To_Craft"

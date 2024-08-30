@@ -25,6 +25,10 @@ public class ItemCounterForge {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void renderGuiPostEvent(RenderGuiEvent.Post event) {
-        CounterRenderer.renderOverlay(event.getGuiGraphics());
+        //#if MC>=1201
+        //$$ CounterRenderer.renderOverlay(event.getGuiGraphics());
+        //#else
+        CounterRenderer.renderOverlay(event.getPoseStack());
+        //#endif
     }
 }
