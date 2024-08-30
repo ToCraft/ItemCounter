@@ -8,7 +8,7 @@ version = "${version}"
 displayName = "Item Counter"
 authors = "To_Craft"
 description = '''
-This adds a custom Item Counter to the game.
+Adds a custom Item Counter to the game!
 '''
 
 [[dependencies.itemcounter]]

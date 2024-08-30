@@ -11,7 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
-import java.util.ArrayList;
+import java.util.Map;
 
 @Environment(EnvType.CLIENT)
 public class CounterRenderer {
@@ -22,19 +22,17 @@ public class CounterRenderer {
     //#endif
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.player != null && minecraft.level != null) {
-            for (int i = 0; i < ItemCounter.CONFIG.items.size(); i++) {
-                String itemId = new ArrayList<>(ItemCounter.CONFIG.items.keySet()).get(i);
-                if (itemId != null) {
-                    Item searchItem = BuiltInRegistries.ITEM.get(new ResourceLocation(itemId));
-                    // search in player inventory
-                    int counter = minecraft.player.getInventory().countItem(searchItem);
+            int i = 0;
+            for (Map.Entry<String, Integer> entry : ItemCounter.CONFIG.items.entrySet()) {
+                Item searchItem = BuiltInRegistries.ITEM.get(new ResourceLocation(entry.getKey()));
+                // search in player inventory
+                int counter = minecraft.player.getInventory().countItem(searchItem);
 
-                    BakedModel itemRenderer = minecraft.getItemRenderer().getItemModelShaper().getItemModel(searchItem);
-                    if (itemRenderer != null && counter > 0) {
-                        int j = i + 1;
-                        graphics.blit((int) (graphics.guiWidth() * ItemCounter.CONFIG.xOffset / 100), (int) (graphics.guiHeight() - graphics.guiHeight() * ItemCounter.CONFIG.yOffset / 100 - graphics.guiHeight() * ItemCounter.CONFIG.size / 100 * j), 0, graphics.guiHeight() / 10, graphics.guiHeight() / 10, itemRenderer.getParticleIcon());
-                        graphics.drawString(Minecraft.getInstance().font, Component.literal("" + counter), (int) (graphics.guiWidth() * ItemCounter.CONFIG.xOffset / 100 + graphics.guiHeight() * ItemCounter.CONFIG.size / 100), (int) (graphics.guiHeight() - graphics.guiHeight() * ItemCounter.CONFIG.yOffset / 100 - graphics.guiHeight() * ItemCounter.CONFIG.size / 100 * j), ItemCounter.CONFIG.items.get(itemId), false);
-                    }
+                BakedModel itemRenderer = minecraft.getItemRenderer().getItemModelShaper().getItemModel(searchItem);
+                if (itemRenderer != null && counter > 0) {
+                    i++;
+                    graphics.blit((int) (graphics.guiWidth() * ItemCounter.CONFIG.xOffset / 100), (int) (graphics.guiHeight() - graphics.guiHeight() * ItemCounter.CONFIG.yOffset / 100 - graphics.guiHeight() * ItemCounter.CONFIG.size / 100 * i), 0, graphics.guiHeight() / 10, graphics.guiHeight() / 10, itemRenderer.getParticleIcon());
+                    graphics.drawString(Minecraft.getInstance().font, Component.literal("" + counter), (int) (graphics.guiWidth() * ItemCounter.CONFIG.xOffset / 100 + graphics.guiHeight() * ItemCounter.CONFIG.size / 100), (int) (graphics.guiHeight() - graphics.guiHeight() * ItemCounter.CONFIG.yOffset / 100 - graphics.guiHeight() * ItemCounter.CONFIG.size / 100 * i), entry.getValue(), false);
                 }
             }
         }

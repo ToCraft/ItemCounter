@@ -12,9 +12,9 @@ public class ItemCounterConfig {
             put("minecraft:diamond", new Color(0, 255, 255).getRGB());
         }
     };
-    @Comment("The left side equals 0, the right one 100.")
+    @Comment("The left side equals 0, the right side 100.")
     public double xOffset = 10;
-    @Comment("The top equals 0, the bottom 100.")
+    @Comment("The bottom equals 0, the top 100.")
     public double yOffset = 10;
     @Comment("The size of the widget per item in percent.")
     public double size = 10;

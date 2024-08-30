@@ -10,5 +10,7 @@ public class Platform {
     @NotNull
     public static Path getConfigPath() {
         throw new AssertionError();
-    };
+    }
+
+    ;
 }

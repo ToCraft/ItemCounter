@@ -3,7 +3,7 @@
   "id": "itemcounter",
   "version": "${version}",
   "name": "Item Counter",
-  "description": "This adds a custom Item Counter to the game.\n",
+  "description": "Adds a custom Item Counter to the game!\n",
   "authors": [
     "To_Craft"
   ],
@@ -15,8 +15,6 @@
   "entrypoints": {
     "main": [
       "dev.tocraft.itemcounter.fabric.ItemCounterFabric"
-    ],
-    "client": [
     ]
   },
   "depends": {

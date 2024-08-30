@@ -6,7 +6,6 @@ import com.mojang.logging.LogUtils;
 import dev.tocraft.itemcounter.platform.Platform;
 
 import java.io.IOException;
-import java.io.StringReader;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
@@ -23,10 +22,6 @@ public class ConfigLoader {
             saveConfig(instance);
         } else {
             try {
-                //List<String> lines = Files.readAllLines(getConfigPath());
-                //lines.removeIf(s -> s.trim().startsWith("//"));
-                //StringBuilder sb = new StringBuilder();
-                //lines.forEach(sb::append);
                 String json = Files.readString(getConfigPath());
                 ItemCounterConfig object = GSON.fromJson(json, ItemCounterConfig.class);
                 saveConfig(object);
