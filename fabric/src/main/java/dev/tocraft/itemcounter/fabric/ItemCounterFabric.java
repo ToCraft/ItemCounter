@@ -1,5 +1,6 @@
 package dev.tocraft.itemcounter.fabric;
 
+import dev.tocraft.itemcounter.ItemCounter;
 import dev.tocraft.itemcounter.gui.CounterRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
@@ -11,7 +12,9 @@ public class ItemCounterFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
-            HudRenderCallback.EVENT.register(CounterRenderer::renderOverlay);
+            HudRenderCallback.EVENT.register((graphics, tickDelta) -> CounterRenderer.renderOverlay(graphics));
         }
+
+        new ItemCounter().initialize();
     }
 }
